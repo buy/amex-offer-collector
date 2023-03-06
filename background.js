@@ -54,21 +54,21 @@ async function collecOffers() {
   </style>
 `;
 
-document.getElementById('amex-offer-collector-banner').innerHTML += `<a id='amex-offer-collector-bug' class="btn btn-primary" href="https://airtable.com/shrko65ccCW6fo8BZ" target="_blank" rel="noopener noreferrer" role="button">Report Bug</a> <br></br>`;
+  document.getElementById('amex-offer-collector-banner').innerHTML += `<a id='amex-offer-collector-bug' class="btn btn-primary" href="https://airtable.com/shrko65ccCW6fo8BZ" target="_blank" rel="noopener noreferrer" role="button">Report Bug</a> <br></br>`;
+  document.getElementById('amex-offer-banner-content').innerText = `Getting things ready ...`;
 
-await new Promise(r => setTimeout(r, 3000));
-document.getElementById('amex-offer-banner-content').innerText = `Getting things ready ...`;
+  await new Promise(r => setTimeout(r, 4000));
 
-var offerButtons = Array.from(document.getElementsByClassName("offer-cta")).filter(btn => btn.title == "Add to Card");
-var index;
-for (index = 0; index < offerButtons.length; ++index) {
-  document.getElementById('amex-offer-banner-content').innerText = `${index} offers collected`;
-  offerButtons[index].click();
+  var offerButtons = Array.from(document.getElementsByClassName("offer-cta")).filter(btn => btn.title == "Add to Card");
+  var index;
+  for (index = 0; index < offerButtons.length; ++index) {
+    document.getElementById('amex-offer-banner-content').innerText = `${index} offers collected`;
+    offerButtons[index].click();
 
-  await new Promise(r => setTimeout(r, 1000));
-}
+    await new Promise(r => setTimeout(r, 1000));
+  }
 
-document.getElementById('amex-offer-banner-content').innerText = `All available offers collected! =)\nPlease refresh the page to remove this banner.`;
+  document.getElementById('amex-offer-banner-content').innerText = `All available offers collected! =)\nPlease refresh the page to remove this banner.`;
 }
 
 chrome.action.onClicked.addListener((tab) => {
