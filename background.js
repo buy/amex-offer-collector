@@ -1,14 +1,22 @@
 async function collecOffers() {
   // Show banner
   document.getElementById('skipToContent').innerHTML += `
-  <div id="amex-offer-collector-banner">Amex Offer Collector is currently running on this page. <br>
+  <div id="amex-offer-collector-banner">
+    <button id="amex-offer-collector-close">x</button>
+    <span>Amex Offer Collector is currently running on this page.</span> <br>
     <span id="amex-offer-banner-content"></span> <br>
   </div>
   <style>
+    #amex-offer-collector-close {
+      float: right;
+      display: inline-block;
+      padding: 0 10px 0 0;
+    }
+
     #amex-offer-collector-banner {
       position: sticky;
       bottom: 0;
-      background-color: #9900ff;
+      background-color: #006fcf;
       padding-top: 20px;
       color: white;
       width: 100%;
@@ -45,6 +53,7 @@ async function collecOffers() {
       background-color: #d1320a;
       box-shadow: rgba(241, 7, 7, 0.2) 0 -25px 18px -14px inset,rgba(241, 7, 7, .15) 0 1px 2px,rgba(241, 7, 7, .15) 0 2px 4px,rgba(241, 7, 7, .15) 0 4px 8px,rgba(241, 7, 7, .15) 0 8px 16px,rgba(241, 7, 7, .15) 0 16px 32px;
       color: white;
+      margin-top: 10px;
     }
     
     #amex-offer-collector-banner a#amex-offer-collector-bug:hover {
@@ -52,10 +61,16 @@ async function collecOffers() {
       transform: scale(1.05) rotate(-1deg);
     }
   </style>
-`;
+  `;
 
   document.getElementById('amex-offer-collector-banner').innerHTML += `<a id='amex-offer-collector-bug' class="btn btn-primary" href="https://airtable.com/shrko65ccCW6fo8BZ" target="_blank" rel="noopener noreferrer" role="button">Report Bug</a> <br></br>`;
   document.getElementById('amex-offer-banner-content').innerText = `Getting things ready ...`;
+
+  // attach event handler for close button
+  document.getElementById('amex-offer-collector-close').onclick = function(){
+    this.parentNode.parentNode.remove();
+    return false;
+  };
 
   await new Promise(r => setTimeout(r, 4000));
 
