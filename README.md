@@ -5,3 +5,6 @@ A simple Chrome Extension that adds all Amex offers with a single click
 2. Load the all offers page
 3. Click on the extension icon
 4. Enjoy!
+
+Available on Chrome Web Store:
+https://chrome.google.com/webstore/detail/amex-offer-collector/onoiombdhkjneegnlbgodhopdnadfknm
