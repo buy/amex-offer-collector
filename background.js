@@ -3,7 +3,7 @@ async function collecOffers() {
   document.getElementById('skipToContent').innerHTML += `
   <div id="amex-offer-collector-banner">
     <button id="amex-offer-collector-close">x</button>
-    <span>Amex Offer Collector is currently running on this page.</span> <br>
+    <span id="amex-offer-banner-title">Amex Offer Collector is currently running on this page.</span> <br>
     <span id="amex-offer-banner-content"></span> <br>
   </div>
   <style>
@@ -83,7 +83,8 @@ async function collecOffers() {
     await new Promise(r => setTimeout(r, 1000));
   }
 
-  document.getElementById('amex-offer-banner-content').innerText = `All available offers collected! =)\nPlease refresh the page to remove this banner.`;
+  document.getElementById('amex-offer-banner-title').remove();
+  document.getElementById('amex-offer-banner-content').innerText = `All ${index} offers collected! =)\nPlease refresh the page to remove this banner.`;
 }
 
 chrome.action.onClicked.addListener((tab) => {
