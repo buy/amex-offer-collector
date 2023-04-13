@@ -2,7 +2,7 @@
   "name": "Amex Offer Collector",
   "action": {},
   "manifest_version": 3,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple Chrome Extension that adds all Amex offers with a single click",
   "permissions": ["activeTab", "scripting"],
   "background": {
