@@ -1,6 +1,6 @@
 async function collecOffers() {
   // Show banner
-  document.getElementById('skipToContent').innerHTML += `
+  document.querySelector('[data-module-name="axp-site-area-nav-container"]').innerHTML += `
   <div id="amex-offer-collector-banner">
     <button id="amex-offer-collector-close">x</button>
     <span id="amex-offer-banner-title">Amex Offer Collector is currently running on this page.</span> <br>
@@ -73,9 +73,9 @@ async function collecOffers() {
   };
 
   await new Promise(r => setTimeout(r, 4000));
-
   var offerButtons = Array.from(document.getElementsByClassName("offer-cta")).filter(btn => btn.title == "Add to Card");
   var index;
+
   for (index = 0; index < offerButtons.length; ++index) {
     document.getElementById('amex-offer-banner-content').innerText = `${index} offers collected`;
     offerButtons[index].click();
